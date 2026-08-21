@@ -1,0 +1,34 @@
+name: Compile examples
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        fqbn:
+          - arduino:renesas_uno:minima
+          - arduino:renesas_uno:unor4wifi
+          - arduino:renesas_uno:nanor4
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Compile examples
+        uses: arduino/compile-sketches@v1
+        with:
+          fqbn: ${{ matrix.fqbn }}
+          platforms: |
+            - name: arduino:renesas_uno
+              version: 1.6.0
+          libraries: |
+            - source-path: ./
+          sketch-paths: |
+            - examples
+          enable-warnings-report: true

@@ -1,0 +1,11 @@
+SeaPerchDepthSensor	KEYWORD1
+SeaPerch	KEYWORD1
+Water	KEYWORD1
+begin	KEYWORD2
+update	KEYWORD2
+ready	KEYWORD2
+depthCm	KEYWORD2
+pressureHpa	KEYWORD2
+temperatureC	KEYWORD2
+temperatureF	KEYWORD2
+faultCount	KEYWORD2
